@@ -14,8 +14,10 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemButton from "@mui/material/ListItemButton";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Logo from "../assets/images/GPTLogo.svg";
 import AvatarComp from "./AvatarComp";
+
+import "../index.css";
+import Logo from "../assets/images/GPTLogo.svg";
 
 const drawerWidth = 240;
 const navItems = [
@@ -88,6 +90,7 @@ function DrawerAppBar(props) {
       <Box>
         <AppBar component="nav">
           <IconButton
+            className="menu-icon"
             color="inherit"
             aria-label="open drawer"
             edge="start"
