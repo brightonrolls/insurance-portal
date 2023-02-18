@@ -10,7 +10,7 @@ const BasicCard = ({ title, count, color }) => {
         className="card"
         sx={{
           alignSelf: "flex-end",
-          marginBottom: "45px",
+          marginBottom: "65px",
           backgroundColor: color,
         }}
       >

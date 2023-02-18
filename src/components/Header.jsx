@@ -5,7 +5,6 @@ import List from "@mui/material/List";
 import AppBar from "@mui/material/AppBar";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
-import Avatar from "@mui/material/Avatar";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -14,9 +13,9 @@ import IconButton from "@mui/material/IconButton";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemButton from "@mui/material/ListItemButton";
 
-import Logo from "../assets/images/GPTLogo.svg";
-
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Logo from "../assets/images/GPTLogo.svg";
+import AvatarComp from "./AvatarComp";
 
 const drawerWidth = 240;
 const navItems = [
@@ -154,10 +153,7 @@ function DrawerAppBar(props) {
                   borderRadius: "3px",
                 }}
               />
-              <Avatar
-                alt="Sonu Goku"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyJbaVWMoAIfzN6APlhpLfo_-XWLaI0-CXCw&usqp=CAU"
-              />
+              <AvatarComp />
             </Box>
           </Box>
         </AppBar>

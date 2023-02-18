@@ -24,7 +24,7 @@ const HeroSection = () => {
               height: "248px",
             }}
             src={FamilyPicture}
-            alt="family-picture"
+            alt="family"
           />
         </Box>
       </Box>
