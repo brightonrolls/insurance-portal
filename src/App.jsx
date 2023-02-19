@@ -1,33 +1,44 @@
-import { Box } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import React from "react";
+import { Box, Grid } from "@mui/material";
+import { useLocation } from "react-router";
 
-import HeroSection from "./components/HeroSection";
+import FamilyPic from "./assets/images/familyPic.png";
+
 import DataTable from "./components/UI/Table/DataTable";
 
-function App() {
-  const theme = useTheme();
-  const extraSmallScreens = useMediaQuery(theme.breakpoints.up("xs"));
-  let getMargin = () => (extraSmallScreens ? "0" : "-60px 0 0 0");
+import "./index.css";
 
-  const styleObj = {
-    margin: getMargin(),
-    padding: "28px 29px",
-    boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.16)",
-    backgroundColor: "#f1f6fa",
-    position: "relative",
-  };
+const App = ({ children }) => {
+  const { pathname } = useLocation();
 
   return (
     <>
-      <Box sx={{ display: "block", background: "#f1f1f1" }}>
-        <HeroSection />
-        <Box sx={styleObj}>
+      <Box display="flex" flexWrap="wrap" sx={{ position: "relative" }}>
+        {/* BACKGROUND CONTAINER */}
+        <Box className="background-container"></Box>
+        {/* FOREGROUND CONTAINER */}
+        <Grid container>
+          {children}
+          <Grid item xs={12} sm={6} md={3} lg={3} className="image-container">
+            {/* IMAGE CONTAINER */}
+            <img
+              src={FamilyPic}
+              alt="family"
+              className="family-img"
+              style={{ marginTop: "20px" }}
+            />
+          </Grid>
+        </Grid>
+      </Box>
+      {pathname === "/new-policy" ? (
+        <></>
+      ) : (
+        <Box>
           <DataTable />
         </Box>
-      </Box>
+      )}
     </>
   );
-}
+};
 
 export default App;

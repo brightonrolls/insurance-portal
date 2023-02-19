@@ -4,7 +4,7 @@ import { Box, Button, FormControl, TextField, Typography } from "@mui/material";
 
 import "../index.css";
 
-const Login = () => {
+const Login = ({ handleLogin }) => {
   return (
     <Box display="flex" justifyContent="center" alignItems="center">
       <Box className="login-container">
@@ -49,7 +49,11 @@ const Login = () => {
           justifyContent="center"
         >
           <Link to="/dashboard">
-            <Button variant="contained" className="custom-btn login-btn-2">
+            <Button
+              variant="contained"
+              className="custom-btn login-btn-2"
+              onClick={handleLogin}
+            >
               Login
             </Button>
           </Link>

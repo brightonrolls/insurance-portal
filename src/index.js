@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import CssBaseline from "@mui/material/CssBaseline";
+
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
-import "./index.css";
 
 import App from "./App";
 import Login from "./pages/Login";
@@ -12,6 +12,9 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LandingPage from "./pages/Landingpage";
 import Policy from "./components/Policy/Policy";
+import Dashboard from "./components/Dashboard";
+import NewPolicy from "./components/Policy/NewPolicy";
+import "./index.css";
 
 const AppLayout = () => {
   return (
@@ -49,7 +52,25 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <App />,
+        element: (
+          <App>
+            <Dashboard marginTop="175px" />
+          </App>
+        ),
+      },
+      {
+        path: "/new-policy",
+        element: (
+          <App>
+            <NewPolicy
+              bg="#fff"
+              margin="75px"
+              padding="100px"
+              radius="10px"
+              shadow="0 3px 6px 0 rgba(0, 0, 0, 0.16)"
+            />
+          </App>
+        ),
       },
     ],
   },
