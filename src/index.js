@@ -1,13 +1,63 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import CssBaseline from "@mui/material/CssBaseline";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import reportWebVitals from "./reportWebVitals";
+import "./index.css";
+
+import App from "./App";
+import Login from "./pages/Login";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import LandingPage from "./pages/Landingpage";
+import Policy from "./components/Policy/Policy";
+
+const AppLayout = () => {
+  return (
+    <>
+      <CssBaseline />
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/",
+        element: (
+          <LandingPage>
+            <Policy />
+          </LandingPage>
+        ),
+      },
+      {
+        path: "/login",
+        element: (
+          <LandingPage>
+            <Login />
+          </LandingPage>
+        ),
+      },
+      {
+        path: "/dashboard",
+        element: <App />,
+      },
+    ],
+  },
+]);
+
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

@@ -1,11 +1,7 @@
-import CssBaseline from "@mui/material/CssBaseline";
-
 import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import DataTable from "./components/UI/Table/DataTable";
 
@@ -21,16 +17,14 @@ function App() {
     backgroundColor: "#f1f6fa",
     position: "relative",
   };
+
   return (
     <>
-      <CssBaseline />
       <Box sx={{ display: "block", background: "#f1f1f1" }}>
-        <Header />
         <HeroSection />
         <Box sx={styleObj}>
           <DataTable />
         </Box>
-        <Footer />
       </Box>
     </>
   );
