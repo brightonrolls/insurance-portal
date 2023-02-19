@@ -65,7 +65,10 @@ const Header = () => {
         {/* NAV ITEMS */}
         {isLoggedIn ? (
           <>
-            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+            <Box
+              sx={{ display: { xs: "none", sm: "block" } }}
+              className="nav-container"
+            >
               {navItems.map(({ id, title, link }) => (
                 <Link key={id} to={link} className="header-nav-items">
                   {title}
