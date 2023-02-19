@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import CssBaseline from "@mui/material/CssBaseline";
 
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import { Outlet, createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
 
@@ -14,7 +15,10 @@ import LandingPage from "./pages/Landingpage";
 import Policy from "./components/Policy/Policy";
 import Dashboard from "./components/Dashboard";
 import NewPolicy from "./components/Policy/NewPolicy";
+import ProtectedRoute from "./components/ProtectedRoute";
 import "./index.css";
+
+import { store } from "./store/store";
 
 const AppLayout = () => {
   return (
@@ -53,23 +57,27 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: (
-          <App>
-            <Dashboard marginTop="175px" />
-          </App>
+          <ProtectedRoute>
+            <App>
+              <Dashboard marginTop="175px" />
+            </App>
+          </ProtectedRoute>
         ),
       },
       {
         path: "/new-policy",
         element: (
-          <App>
-            <NewPolicy
-              bg="#fff"
-              margin="75px"
-              padding="100px"
-              radius="10px"
-              shadow="0 3px 6px 0 rgba(0, 0, 0, 0.16)"
-            />
-          </App>
+          <ProtectedRoute>
+            <App>
+              <NewPolicy
+                bg="#fff"
+                margin="75px"
+                padding="100px"
+                radius="10px"
+                shadow="0 3px 6px 0 rgba(0, 0, 0, 0.16)"
+              />
+            </App>
+          </ProtectedRoute>
         ),
       },
     ],
@@ -78,7 +86,9 @@ const router = createBrowserRouter([
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 

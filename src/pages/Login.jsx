@@ -1,10 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Box, Button, FormControl, TextField, Typography } from "@mui/material";
 
+import { loginHandler } from "../redux/authSlice";
 import "../index.css";
 
-const Login = ({ handleLogin }) => {
+const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  useEffect(() => {
+    if (isLoggedIn === true) {
+      navigate("/dashboard");
+    }
+  }, [isLoggedIn, navigate]);
+
   return (
     <Box display="flex" justifyContent="center" alignItems="center">
       <Box className="login-container">
@@ -48,15 +60,15 @@ const Login = ({ handleLogin }) => {
           alignItems="center"
           justifyContent="center"
         >
-          <Link to="/dashboard">
-            <Button
-              variant="contained"
-              className="custom-btn login-btn-2"
-              onClick={handleLogin}
-            >
-              Login
-            </Button>
-          </Link>
+          <Button
+            variant="contained"
+            className="custom-btn login-btn-2"
+            onClick={() => {
+              dispatch(loginHandler());
+            }}
+          >
+            Login
+          </Button>
         </Box>
       </Box>
     </Box>

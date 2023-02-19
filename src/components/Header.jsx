@@ -1,23 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { Box, Button, Divider, Typography } from "@mui/material";
+import { useSelector } from "react-redux";
+import { Box, Divider, Typography } from "@mui/material";
 
 import AvatarComp from "./AvatarComp";
 
 import "../index.css";
 import Logo from "../assets/images/GPTLogo.svg";
 import LoginArrow from "../assets/images/Login.svg";
+import { logoutHandler } from "../redux/authSlice";
 
 const navItems = [
-  "My Apps",
-  "Quick Quotes",
-  "Products",
-  "Download Forms",
-  "Buy a New Policy",
+  {
+    id: 1,
+    title: "My Apps",
+    link: "#",
+  },
+  {
+    id: 2,
+    title: "Quick Quotes",
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "Products",
+    link: "#",
+  },
+  {
+    id: 4,
+    title: "Download Forms",
+    link: "#",
+  },
+  {
+    id: 5,
+    title: "Buy a New Policy",
+    link: "/new-policy",
+  },
 ];
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn } = useSelector((state) => state.auth);
   return (
     <>
       <Box
@@ -32,7 +54,7 @@ const Header = () => {
         }}
       >
         {/* LOGO */}
-        <Link to="/">
+        <Link to="/dashboard">
           <img
             src={Logo}
             alt="Logo"
@@ -44,8 +66,10 @@ const Header = () => {
         {isLoggedIn ? (
           <>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
-              {navItems.map((item) => (
-                <Button key={item}>{item}</Button>
+              {navItems.map(({ id, title, link }) => (
+                <Link key={id} to={link} className="header-nav-items">
+                  {title}
+                </Link>
               ))}
             </Box>
             {/* User Login Details */}
@@ -75,7 +99,7 @@ const Header = () => {
                   borderRadius: "3px",
                 }}
               />
-              <AvatarComp />
+              <AvatarComp logoutHandler={logoutHandler} />
             </Box>
           </>
         ) : (
