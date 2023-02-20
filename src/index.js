@@ -13,7 +13,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LandingPage from "./pages/Landingpage";
 import Policy from "./components/Policy/Policy";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/Dashboard/Dashboard";
 import NewPolicy from "./components/Policy/NewPolicy";
 import ProtectedRoute from "./components/ProtectedRoute";
 import "./index.css";
