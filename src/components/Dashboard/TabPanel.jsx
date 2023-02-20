@@ -30,7 +30,7 @@ const data = [
 const TabPanel = ({ value, index, title }) => {
   return (
     <div
-      style={{ margin: { xs: "0", lg: "50px" }, width: "100vw" }}
+      style={{ margin: "0 20px", width: "95vw" }}
       role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}

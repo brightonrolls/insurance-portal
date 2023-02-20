@@ -5,7 +5,6 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 import "./BasicCard.css";
 import "../../../index.css";
-// import SimpleDialog from "./SimpleDialog";
 
 const BasicCard = ({ title, count, color }) => {
   const theme = useTheme();
