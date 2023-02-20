@@ -7,12 +7,13 @@ import "../../index.css";
 const NewPolicy = ({ bg, shadow, radius, margin, padding }) => {
   return (
     <>
-      <Grid item xs={12} sm={6} md={9} lg={9}>
+      <Grid item xs={12} sm={12} md={9} lg={9}>
         <Box
           className="foreground-container"
           sx={{
-            margin,
-            padding,
+            margin: { xs: "20px", lg: margin },
+            padding: { xs: "20px", lg: padding },
+            marginTop: "100px !important",
             backgroundColor: bg,
             borderRadius: radius,
             boxShadow: shadow,

@@ -42,7 +42,7 @@ code {
 }
 
 .container-two {
-  padding: 50px 25px;
+  padding: 10px 25px 50px 25px;
 }
 
 .feature-container {
@@ -51,7 +51,7 @@ code {
   border: solid 1px #bbb;
   background-color: #fff;
   padding: 30px 30px;
-  width: 421px;
+  /* width: 421px; */
 }
 
 .custom-btn {
@@ -146,9 +146,9 @@ code {
   .image-container {
     display: none;
   }
-  .card {
+  /* .card {
     width: auto !important;
-  }
+  } */
   .menu-icon {
     margin: 20px !important;
   }

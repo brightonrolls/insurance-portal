@@ -10,7 +10,7 @@ import "../../../index.css";
 const BasicCard = ({ title, count, color }) => {
   const theme = useTheme();
   const extraSmallScreens = useMediaQuery(theme.breakpoints.up("xs"));
-  let getCardMarginBottom = () => (extraSmallScreens ? "8px" : "65px");
+  let getCardMarginBottom = () => (extraSmallScreens ? "0" : "65px");
   return (
     <>
       <Card
@@ -29,9 +29,6 @@ const BasicCard = ({ title, count, color }) => {
           <span className="count">{count}</span>
         </Box>
       </Card>
-      {/* <SimpleDialog titleData={title}>
-        
-      </SimpleDialog> */}
     </>
   );
 };
