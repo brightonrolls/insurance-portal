@@ -1,59 +1,126 @@
 import React from "react";
-import MuiAppBar from "@mui/material/AppBar";
-import MenuIcon from "@mui/icons-material/Menu";
-import { styled } from "@mui/material/styles";
-import { Box, Avatar, Toolbar, IconButton, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Box, Divider, Typography } from "@mui/material";
 
-const drawerWidth = 240;
+import AvatarComp from "./AvatarComp";
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(["width", "margin"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
+import "../index.css";
+import Logo from "../assets/images/GPTLogo.svg";
+import LoginArrow from "../assets/images/Login.svg";
+import { logoutHandler } from "../redux/authSlice";
 
-const Header = ({ open, setOpen, handleDrawerOpen, handleDrawerClose }) => {
+const navItems = [
+  {
+    id: 1,
+    title: "My Apps",
+    link: "#",
+  },
+  {
+    id: 2,
+    title: "Quick Quotes",
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "Products",
+    link: "#",
+  },
+  {
+    id: 4,
+    title: "Download Forms",
+    link: "#",
+  },
+  {
+    id: 5,
+    title: "Buy a New Policy",
+    link: "/new-policy",
+  },
+];
+
+const Header = () => {
+  const { isLoggedIn } = useSelector((state) => state.auth);
   return (
     <>
-      <AppBar position="fixed" open={open}>
-        <Box display="flex" alignItems="center" justifyContent="space-between">
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              sx={{
-                marginRight: 5,
-                ...(open && { display: "none" }),
-              }}
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        alignItems="center"
+        justifyContent="space-between"
+        sx={{
+          gap: "20px",
+          padding: "0 20px",
+          boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.16)",
+        }}
+      >
+        {/* LOGO */}
+        <Link to="/dashboard">
+          <img
+            src={Logo}
+            alt="Logo"
+            style={{ height: "70px", paddingTop: "10px" }}
+          />
+        </Link>
+
+        {/* NAV ITEMS */}
+        {isLoggedIn ? (
+          <>
+            <Box
+              sx={{ display: { xs: "none", sm: "block" } }}
+              className="nav-container"
             >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" noWrap component="div">
-              Insurance Portal
-            </Typography>
-          </Toolbar>
-          <Box pr={3}>
-            <Avatar
-              alt="Sonu Goku"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyJbaVWMoAIfzN6APlhpLfo_-XWLaI0-CXCw&usqp=CAU"
-            />
-          </Box>
-        </Box>
-      </AppBar>
+              {navItems.map(({ id, title, link }) => (
+                <Link key={id} to={link} className="header-nav-items">
+                  {title}
+                </Link>
+              ))}
+            </Box>
+            {/* User Login Details */}
+            <Box
+              alignItems="center"
+              justifyContent="space-between"
+              sx={{ display: { xs: "none", sm: "flex", gap: "10px" } }}
+            >
+              <Box>
+                <Typography variant="subtitle2" color="text.secondary">
+                  Welcome Son, Goku
+                </Typography>
+                <Typography
+                  variant="subtitle2"
+                  color="text.secondary"
+                  align="right"
+                >
+                  Customer
+                </Typography>
+              </Box>
+              <Divider
+                orientation="vertical"
+                flexItem
+                sx={{
+                  backgroundColor: "#073262",
+                  width: "3px",
+                  borderRadius: "3px",
+                }}
+              />
+              <AvatarComp logoutHandler={logoutHandler} />
+            </Box>
+          </>
+        ) : (
+          <>
+            <Link to="/login" className="login-btn">
+              <Box
+                display="flex"
+                alignItems="center"
+                justifyContent="space-between"
+                sx={{ gap: "5px" }}
+              >
+                <Typography>Existing Customer Login</Typography>
+                <img src={LoginArrow} alt="Arrow" width="18px" height="18px" />
+              </Box>
+            </Link>
+          </>
+        )}
+      </Box>
     </>
   );
 };
