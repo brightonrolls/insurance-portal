@@ -72,7 +72,7 @@ const router = createBrowserRouter([
               <NewPolicy
                 bg="#fff"
                 margin="75px"
-                padding="100px"
+                padding="60px"
                 radius="10px"
                 shadow="0 3px 6px 0 rgba(0, 0, 0, 0.16)"
               />

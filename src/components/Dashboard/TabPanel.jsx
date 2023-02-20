@@ -30,7 +30,7 @@ const data = [
 const TabPanel = ({ value, index, title }) => {
   return (
     <div
-      style={{ margin: "0 50px", width: "95vw" }}
+      style={{ margin: { xs: "0", lg: "50px" }, width: "100vw" }}
       role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
@@ -47,30 +47,33 @@ const TabPanel = ({ value, index, title }) => {
                   <Box
                     className="dialog-card"
                     key={id}
-                    // mb={2}
-                    display="flex"
                     alignItems="center"
                     justifyContent="space-between"
-                    sx={{ padding: "20px 50px" }}
+                    sx={{
+                      padding: { xs: "20px 30px", lg: "20px 50px" },
+                      display: { xs: "block", lg: "flex" },
+                    }}
                   >
                     <Box>
-                      <Typography variant="body1">{name}</Typography>
-                      <Typography color="text.secondary" variant="body2">
+                      <Typography variant="body1" mb={1}>
+                        {name}
+                      </Typography>
+                      <Typography color="text.secondary" variant="body2" mb={1}>
                         {OHRID}
                       </Typography>
                     </Box>
                     <Box>
-                      <Typography variant="body1" color="text.primary">
+                      <Typography variant="body1" color="text.primary" mb={1}>
                         Installment Premimum (Yly)
                       </Typography>
-                      <Typography color="text.secondary" variant="body2">
+                      <Typography color="text.secondary" variant="body2" mb={1}>
                         Rs. {installment}
                       </Typography>
-                      <Typography color="text.secondary" variant="body2" mt={1}>
+                      <Typography color="text.secondary" variant="body2" mb={1}>
                         In Force
                       </Typography>
                     </Box>
-                    <Box>
+                    <Box mb={1}>
                       <Typography variant="body1" color="text.primary">
                         Premimum Due Form
                       </Typography>
@@ -82,7 +85,7 @@ const TabPanel = ({ value, index, title }) => {
                         {date}
                       </Typography>
                     </Box>
-                    <Box>
+                    <Box mb={1}>
                       <img
                         src={DeleteIcon}
                         alt="Delete"
