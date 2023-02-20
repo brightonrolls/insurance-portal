@@ -1,13 +1,94 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import CssBaseline from "@mui/material/CssBaseline";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { Provider } from "react-redux";
+import { Outlet, createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import reportWebVitals from "./reportWebVitals";
+
+import App from "./App";
+import Login from "./pages/Login";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import LandingPage from "./pages/Landingpage";
+import Policy from "./components/Policy/Policy";
+import Dashboard from "./components/Dashboard";
+import NewPolicy from "./components/Policy/NewPolicy";
+import ProtectedRoute from "./components/ProtectedRoute";
+import "./index.css";
+
+import { store } from "./store/store";
+
+const AppLayout = () => {
+  return (
+    <>
+      <CssBaseline />
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/",
+        element: (
+          <LandingPage>
+            <Policy />
+          </LandingPage>
+        ),
+      },
+      {
+        path: "/login",
+        element: (
+          <LandingPage>
+            <Login />
+          </LandingPage>
+        ),
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <ProtectedRoute>
+            <App>
+              <Dashboard marginTop="175px" />
+            </App>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/new-policy",
+        element: (
+          <ProtectedRoute>
+            <App>
+              <NewPolicy
+                bg="#fff"
+                margin="75px"
+                padding="100px"
+                radius="10px"
+                shadow="0 3px 6px 0 rgba(0, 0, 0, 0.16)"
+              />
+            </App>
+          </ProtectedRoute>
+        ),
+      },
+    ],
+  },
+]);
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 

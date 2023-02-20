@@ -8,9 +8,15 @@ import {
   Typography,
 } from "@mui/material";
 
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+import { useDispatch } from "react-redux";
+
+import { logoutHandler } from "../redux/authSlice";
+
+const settings = ["Logout"];
 
 const AvatarComp = () => {
+  const dispatch = useDispatch();
+
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -46,7 +52,13 @@ const AvatarComp = () => {
         onClose={handleCloseUserMenu}
       >
         {settings.map((setting) => (
-          <MenuItem key={setting} onClick={handleCloseUserMenu}>
+          <MenuItem
+            key={setting}
+            onClick={() => {
+              handleCloseUserMenu();
+              dispatch(logoutHandler());
+            }}
+          >
             <Typography textAlign="center">{setting}</Typography>
           </MenuItem>
         ))}
