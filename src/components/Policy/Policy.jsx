@@ -19,7 +19,7 @@ const Policy = () => {
   return (
     <>
       <Typography align="center" fontSize="22px">
-        Insurance Quide
+        Insurance Guide
       </Typography>
       <Box sx={{ marginTop: "40px" }}>
         <Box
@@ -36,7 +36,7 @@ const Policy = () => {
           >
             <img src={Shield2} alt="Shield" className="svg-icons" />
             <Typography fontSize="22px" align="center">
-              Insurance Quide
+              Insurance Guide
             </Typography>
           </Box>
           <Box

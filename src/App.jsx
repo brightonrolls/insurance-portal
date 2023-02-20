@@ -1,16 +1,11 @@
 import React from "react";
 import { Box, Grid } from "@mui/material";
-import { useLocation } from "react-router";
 
 import FamilyPic from "./assets/images/familyPic.png";
-
-import DataTable from "./components/UI/Table/DataTable";
 
 import "./index.css";
 
 const App = ({ children }) => {
-  const { pathname } = useLocation();
-
   return (
     <>
       <Box display="flex" flexWrap="wrap" sx={{ position: "relative" }}>
@@ -30,13 +25,6 @@ const App = ({ children }) => {
           </Grid>
         </Grid>
       </Box>
-      {pathname === "/new-policy" ? (
-        <></>
-      ) : (
-        <Box>
-          <DataTable />
-        </Box>
-      )}
     </>
   );
 };
