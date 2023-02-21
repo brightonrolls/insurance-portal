@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const userRoutes = require('./api/routes/users');
 const productRoutes = require('./api/routes/products');
 const policyRoutes = require('./api/routes/policies');
-mongoose.connect('mongodb+srv://gopinadhpasupuleti:yjp3wFCwKI5nrVJf@cluster0.jicd9sd.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true } );
+mongoose.connect('mongodb+srv://gagankumar:YaXLspvREFGhzcF4@cluster0.rd0gj4x.mongodb.net/insurance_db', { useNewUrlParser: true, useUnifiedTopology: true } );
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
