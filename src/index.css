@@ -141,6 +141,48 @@ code {
   background-color: #707070;
 }
 
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+
+.p-20 {
+  padding: 20px !important;
+}
+
+.policy-tab-cards {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 25px !important;
+  padding: 15px !important;
+  border-radius: 25px !important;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16) !important;
+  border: solid 1px #00aecf !important;
+  width: 322px;
+}
+
+.text-capital {
+  text-transform: capitalize;
+}
+
+.policy-sub-tabs {
+  font-size: 16px;
+  font-weight: bold;
+  color: #464646;
+}
+
+.policy-listing-card-item {
+  width: 240px;
+  padding: 15px 32px 15px 12px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #f1f6fa;
+}
+
+.heading-color {
+  color: #464646 !important;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .image-container {

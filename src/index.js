@@ -11,6 +11,7 @@ import App from "./App";
 import Login from "./pages/Login";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Policies from "./pages/Policies";
 import LandingPage from "./pages/Landingpage";
 import Policy from "./components/Policy/Policy";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -70,6 +71,22 @@ const router = createBrowserRouter([
           <ProtectedRoute>
             <App>
               <NewPolicy
+                bg="#fff"
+                margin="75px"
+                padding="60px"
+                radius="10px"
+                shadow="0 3px 6px 0 rgba(0, 0, 0, 0.16)"
+              />
+            </App>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/policies",
+        element: (
+          <ProtectedRoute>
+            <App>
+              <Policies
                 bg="#fff"
                 margin="75px"
                 padding="60px"

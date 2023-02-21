@@ -9,6 +9,7 @@ import {
   ToggleButton,
   ToggleButtonGroup,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import MuiPhoneNumber from "material-ui-phone-number";
 
 import Shield2 from "../../assets/images/shield-5.svg";
@@ -186,13 +187,15 @@ const Policy = () => {
               </Grid>
             </Grid>
             <Box display="flex" alignItems="center" justifyContent="center">
-              <Button
-                variant="contained"
-                className="calculate-btn custom-btn"
-                onSubmit={() => {}}
-              >
-                Calculate Now
-              </Button>
+              <Link to="/policies">
+                <Button
+                  variant="contained"
+                  className="calculate-btn custom-btn"
+                  onSubmit={() => {}}
+                >
+                  Calculate Now
+                </Button>
+              </Link>
             </Box>
           </form>
         </Grid>
