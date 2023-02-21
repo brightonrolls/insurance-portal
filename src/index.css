@@ -42,7 +42,7 @@ code {
 }
 
 .container-two {
-  padding: 50px 25px;
+  padding: 10px 25px 50px 25px;
 }
 
 .feature-container {
@@ -51,7 +51,7 @@ code {
   border: solid 1px #bbb;
   background-color: #fff;
   padding: 30px 30px;
-  width: 421px;
+  /* width: 421px; */
 }
 
 .custom-btn {
@@ -129,14 +129,101 @@ code {
   margin: 0 0;
 }
 
+.user-policy-container {
+  padding: 28px 17px 71px;
+  border: solid 1px #707070;
+  background-color: #fff;
+}
+
+.divider {
+  height: 1px;
+  margin: 12px 11.5px 0 0.5px;
+  background-color: #707070;
+}
+
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+
+.p-20 {
+  padding: 20px !important;
+}
+
+.policy-tab-cards {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 25px !important;
+  padding: 15px !important;
+  border-radius: 25px !important;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16) !important;
+  border: solid 1px #00aecf !important;
+  width: 322px;
+}
+
+.text-capital {
+  text-transform: capitalize;
+}
+
+.policy-sub-tabs {
+  font-size: 16px;
+  font-weight: bold;
+  color: #464646;
+}
+
+.policy-listing-card-item {
+  width: 240px;
+  padding: 15px 32px 15px 12px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #f1f6fa;
+}
+
+.heading-color {
+  color: #464646 !important;
+}
+
+.recommended-policies-container {
+  margin: 10px 0;
+  padding: 20px 15px 15px 15px;
+  background-color: #f1f6fa;
+  height: 300px;
+}
+
+.recommended-policies-container-header {
+  border-radius: 10px;
+  border: solid 1px #bbb;
+  background-color: #fff;
+}
+
+.recommended-policies-container-body {
+  margin: 20px 0;
+  border-radius: 10px;
+  border: solid 1px #bbb;
+  background-color: #fff;
+  /* height: 115px; */
+}
+
+.vertical-line {
+  background-color: #707070;
+  width: 1px;
+}
+
+.buy-now-btn {
+  border-radius: 5px !important;
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%) !important;
+  border: solid 1px #bbb !important;
+  background-color: #073262 !important;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .image-container {
     display: none;
   }
-  .card {
+  /* .card {
     width: auto !important;
-  }
+  } */
   .menu-icon {
     margin: 20px !important;
   }

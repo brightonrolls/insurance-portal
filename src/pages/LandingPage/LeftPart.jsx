@@ -13,8 +13,8 @@ const LeftPart = () => {
       <Grid
         item
         xs={12}
-        sm={6}
-        md={6}
+        sm={12}
+        md={12}
         lg={6}
         sx={{
           zIndex: "-1",
@@ -22,6 +22,7 @@ const LeftPart = () => {
         }}
       >
         <Box className="container-one">
+          {/* TITLE TEXT */}
           <Box>
             <Typography className="title">
               Secure Family with 1 Cr Cover
@@ -30,6 +31,7 @@ const LeftPart = () => {
               with minimal premium
             </Typography>
           </Box>
+          {/* IMAGE */}
           <Box
             mt={4}
             display="flex"
@@ -43,37 +45,66 @@ const LeftPart = () => {
               width="300px"
             />
           </Box>
-          <Box
-            mt={4}
-            sx={{ gap: "50px" }}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Box display="flex" alignItems="center" flexDirection="column">
-              <img src={Shield} alt="family" className="svg-icons" />
-              <Typography fontSize="12px" width="80px" align="center" mt={3}>
-                99.3% Claims Settlement
-              </Typography>
-            </Box>
-            <Box display="flex" alignItems="center" flexDirection="column">
-              <img src={Setting} alt="family" className="svg-icons" />
-              <Typography fontSize="12px" width="80px" align="center" mt={3}>
-                Zero Payment Discharge
-              </Typography>
-            </Box>
-            <Box display="flex" alignItems="center" flexDirection="column">
-              <img src={Bed} alt="family" className="svg-icons" />
-              <Typography fontSize="12px" width="80px" align="center" mt={3}>
-                Critical Illness
-              </Typography>
-            </Box>
-            <Box display="flex" alignItems="center" flexDirection="column">
-              <img src={Clock} alt="family" className="svg-icons" />
-              <Typography fontSize="12px" width="80px" align="center" mt={3}>
-                Quick response
-              </Typography>
-            </Box>
+          {/* FEATURES */}
+          <Box sx={{ width: "100%" }}>
+            <Grid
+              container
+              rowSpacing={1}
+              columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+            >
+              <Grid item xs={6} lg={3}>
+                <Box display="flex" alignItems="center" flexDirection="column">
+                  <img src={Shield} alt="family" className="svg-icons" />
+                  <Typography
+                    fontSize="12px"
+                    width="80px"
+                    align="center"
+                    mt={3}
+                  >
+                    99.3% Claims Settlement
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid item xs={6} lg={3}>
+                <Box display="flex" alignItems="center" flexDirection="column">
+                  <img src={Setting} alt="family" className="svg-icons" />
+                  <Typography
+                    fontSize="12px"
+                    width="80px"
+                    align="center"
+                    mt={3}
+                  >
+                    Zero Payment Discharge
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid item xs={6} lg={3}>
+                <Box display="flex" alignItems="center" flexDirection="column">
+                  <img src={Bed} alt="family" className="svg-icons" />
+                  <Typography
+                    fontSize="12px"
+                    width="80px"
+                    align="center"
+                    mt={3}
+                  >
+                    Critical Illness
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid item xs={6} lg={3}>
+                <Box display="flex" alignItems="center" flexDirection="column">
+                  <img src={Clock} alt="family" className="svg-icons" />
+                  <Typography
+                    fontSize="12px"
+                    width="80px"
+                    align="center"
+                    mt={3}
+                  >
+                    Quick response
+                  </Typography>
+                </Box>
+              </Grid>
+            </Grid>
           </Box>
         </Box>
       </Grid>

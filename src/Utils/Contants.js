@@ -1,3 +1,76 @@
+import CarIcon from "../assets/images/car.png";
+import BikeIcon from "../assets/images/bike.png";
+import FireIcon from "../assets/images/fire.png";
+import HomeIcon from "../assets/images/home.png";
+import FamilyIcon from "../assets/images/family.png";
+import TravelIcon from "../assets/images/travel.png";
+import CriticalIcon from "../assets/images/critical.png";
+import MediClaimIcon from "../assets/images/mediclaim.png";
+import AccidentalIcon from "../assets/images/accident.png";
+import SeniorCitizenIcon from "../assets/images/senior.png";
+import IndividualIcon from "../assets/images/individual.png";
+
+export const lifeInsuranceOptions = [
+  {
+    id: 1,
+    name: "Mediclaim",
+    icon: MediClaimIcon,
+  },
+  {
+    id: 2,
+    name: "Individual",
+    icon: IndividualIcon,
+  },
+  {
+    id: 3,
+    name: "Family",
+    icon: FamilyIcon,
+  },
+  {
+    id: 4,
+    name: "Senior Citizen",
+    icon: SeniorCitizenIcon,
+  },
+  {
+    id: 5,
+    name: "Accidental",
+    icon: AccidentalIcon,
+  },
+  {
+    id: 6,
+    name: "Critical Illness",
+    icon: CriticalIcon,
+  },
+];
+
+export const nonLifeInsuranceOptions = [
+  {
+    id: 1,
+    name: "Car",
+    icon: CarIcon,
+  },
+  {
+    id: 2,
+    name: "Bike",
+    icon: BikeIcon,
+  },
+  {
+    id: 3,
+    name: "Fire",
+    icon: FireIcon,
+  },
+  {
+    id: 4,
+    name: "Home",
+    icon: HomeIcon,
+  },
+  {
+    id: 5,
+    name: "Travel",
+    icon: TravelIcon,
+  },
+];
+
 // From https://bitbucket.org/atlassian/atlaskit-mk-2/raw/4ad0e56649c3e6c973e226b7efaeb28cb240ccb0/packages/core/select/src/data/countries.js
 export const countries = [
   { code: "AD", label: "Andorra", phone: "376" },
