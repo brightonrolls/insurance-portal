@@ -183,6 +183,32 @@ code {
   color: #464646 !important;
 }
 
+.recommended-policies-container {
+  margin: 10px 0;
+  padding: 20px 15px 15px 15px;
+  background-color: #f1f6fa;
+  height: 300px;
+}
+
+.recommended-policies-container-header {
+  border-radius: 10px;
+  border: solid 1px #bbb;
+  background-color: #fff;
+}
+
+.recommended-policies-container-body {
+  margin: 20px 0;
+  border-radius: 10px;
+  border: solid 1px #bbb;
+  background-color: #fff;
+  /* height: 115px; */
+}
+
+.vertical-line {
+  background-color: #707070;
+  width: 1px;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .image-container {

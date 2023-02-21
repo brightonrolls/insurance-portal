@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Tab, Tabs } from "@mui/material";
 
 import SubTabPanel from "./SubTabPanel";
@@ -9,15 +9,14 @@ import {
 } from "../../../Utils/Contants";
 
 const SubTabs = ({ currentTabValue }) => {
-  console.log(currentTabValue);
   const [value, setValue] = React.useState(0);
-  let optionsArr = [...lifeInsuranceOptions];
+  const [optionsArr, setOptionsArr] = useState([...lifeInsuranceOptions]);
 
   useEffect(() => {
     if (currentTabValue === 0) {
-      optionsArr = [...lifeInsuranceOptions];
+      setOptionsArr([...lifeInsuranceOptions]);
     } else if (currentTabValue === 1) {
-      optionsArr = [...nonLifeInsuranceOptions];
+      setOptionsArr([...nonLifeInsuranceOptions]);
     }
   }, [currentTabValue]);
 
@@ -52,9 +51,12 @@ const SubTabs = ({ currentTabValue }) => {
             return (
               <Tab
                 key={id}
-                sx={{ gap: "10px" }}
+                sx={{
+                  gap: "10px",
+                  margin: currentTabValue === 1 ? "0 5px" : "0",
+                }}
                 iconPosition="start"
-                icon={<img src={icon} alt={name} />}
+                icon={<img src={icon} alt={name} style={{ margin: "0" }} />}
                 label={<TabWithoutCard title={name} />}
                 {...a11yProps(i)}
               />

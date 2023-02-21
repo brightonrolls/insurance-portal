@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
 
 import "../../../index.css";
+import PolicyListing from "./PolicyListing";
 
 const data = [
   {
@@ -38,6 +39,7 @@ const data = [
 ];
 
 const SubTabPanel = ({ title, value, index }) => {
+  const [openContainer, setOpenContainer] = useState(false);
   return (
     <div
       role="tabpanel"
@@ -59,7 +61,11 @@ const SubTabPanel = ({ title, value, index }) => {
                 >
                   {data?.map(({ id, heading, subTitle, count }) => {
                     return (
-                      <div key={id} className="policy-listing-card-item">
+                      <div
+                        key={id}
+                        className="policy-listing-card-item"
+                        onClick={() => setOpenContainer(!openContainer)}
+                      >
                         <Box
                           sx={{ width: "200px" }}
                           display="flex"
@@ -94,6 +100,11 @@ const SubTabPanel = ({ title, value, index }) => {
                   })}
                 </Box>
               </Scrollbars>
+              {openContainer && (
+                <>
+                  <PolicyListing />
+                </>
+              )}
               <Box sx={{ paddingTop: "30px" }}>
                 <Typography fontSize="1.5rem" pb={3}>
                   Also Viewed
