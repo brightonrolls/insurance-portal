@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Divider, Grid, Typography } from "@mui/material";
+import { Box, Button, Divider, Grid, Typography } from "@mui/material";
 import { Scrollbars } from "react-custom-scrollbars";
 
 import "../../../index.css";
@@ -104,7 +104,16 @@ const PolicyListing = () => {
                     className="vertical-line"
                   />
                   <Grid item xs={12} lg={2} p={1} pb={0}>
-                    <Typography align="center">{premiumMonthly}</Typography>
+                    <Box
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="space-between"
+                    >
+                      <Typography align="center">{premiumMonthly}</Typography>
+                      <Button variant="contained" className="buy-now-btn">
+                        Buy
+                      </Button>
+                    </Box>
                   </Grid>
                 </Grid>
               </Box>
