@@ -12,15 +12,18 @@ const User = require('../models/User');
 
 router.post('/users/registration', async (req, res) => {
     let user={};
-    console.log(req.body);
     try{
     user = new User({
         _id: new mongoose.Types.ObjectId(),
         name : req.body.name,
         email : req.body.email,
         password : req.body.password,
-        contact : req.body.contact,
-        age : req.body.age
+        number : req.body.number,
+        age : req.body.age,
+        bloodGroup : req.body.bloodGroup,
+        currentAddress : req.body.currentAddress,
+        permanantAddress : req.body.permanantAddress,
+        dateOfBirth :  req.body.dateOfBirth
     })
    const newuser  = await user.save()
         res.json({
@@ -45,14 +48,12 @@ router.post('/users/registration', async (req, res) => {
    
 });
 
-router.get('/users/login', async(req, res)=>{
+router.post('/users/login', async(req, res)=>{
     try{
         const email = req.body.email;
         const password = req.body.password;
         console.log(email)
-        const user = await findByCredentials(email, password)
-      //  const token = await generateAuthToken(user);
-      //  console.log(token, "token");
+        const user = await findByCredentials(email, password);
        if(user){
            res.status(200).json({
                "message" : "You have succeefully logged In.",              
@@ -61,7 +62,7 @@ router.get('/users/login', async(req, res)=>{
            res.send("Enter details are invalid");
        }
     }catch(error){
-        res.status(200).json({ error:error})
+        res.status(500).json({ error:error.message})
     }
 })
 
@@ -72,7 +73,7 @@ findByCredentials = async(email, password) => {
     }
     const isMatch = await bcrypt.compare(password, user.password);
     if(!isMatch){
-        throw new Error('unable to login');
+        throw new Error('Password is not macthing');
     }
     return user;
 };
