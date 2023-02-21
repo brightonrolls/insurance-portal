@@ -17,6 +17,8 @@ import Policy from "./components/Policy/Policy";
 import Dashboard from "./components/Dashboard/Dashboard";
 import NewPolicy from "./components/Policy/NewPolicy";
 import ProtectedRoute from "./components/ProtectedRoute";
+import RegistrationForm from "./pages/RegistrationForm";
+
 import "./index.css";
 
 import { store } from "./store/store";
@@ -52,6 +54,14 @@ const router = createBrowserRouter([
         element: (
           <LandingPage>
             <Login />
+          </LandingPage>
+        ),
+      },
+      {
+        path: "/registration",
+        element: (
+          <LandingPage>
+            <RegistrationForm/>
           </LandingPage>
         ),
       },

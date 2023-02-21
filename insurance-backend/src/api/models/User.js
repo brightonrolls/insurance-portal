@@ -26,7 +26,7 @@ const userSchema = mongoose.Schema({
         required : true,
         minlength : 8
     },
-   contact : {
+   number : {
     type: Number,
     required: true,
     unique : true,
@@ -35,6 +35,22 @@ const userSchema = mongoose.Schema({
    age : {
     type: Number,
     required: true,
+   },
+   bloodGroup : {
+    type : String,
+    required : true
+   },
+   currentAddress : {
+    type : String,
+    required : true,
+   },
+   permanantAddress : {
+    type : String,
+    required : true
+   },
+   dateOfBirth : {
+    type : Date,
+    required : true,
    },
    policies : [{
     type :  mongoose.Schema.Types.ObjectId,
@@ -50,4 +66,4 @@ userSchema.pre('save', async function(next){
     next();
 })
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('User', userSchema);
