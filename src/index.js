@@ -14,10 +14,11 @@ import Footer from "./components/Footer";
 import Policies from "./pages/Policies";
 import LandingPage from "./pages/Landingpage";
 import Policy from "./components/Policy/Policy";
-import Dashboard from "./components/Dashboard/Dashboard";
+import PolicyCreation from "./pages/PolicyCreation";
 import NewPolicy from "./components/Policy/NewPolicy";
-import ProtectedRoute from "./components/ProtectedRoute";
 import RegistrationForm from "./pages/RegistrationForm";
+import Dashboard from "./components/Dashboard/Dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import "./index.css";
 
@@ -61,7 +62,7 @@ const router = createBrowserRouter([
         path: "/registration",
         element: (
           <LandingPage>
-            <RegistrationForm/>
+            <RegistrationForm />
           </LandingPage>
         ),
       },
@@ -99,12 +100,28 @@ const router = createBrowserRouter([
               <Policies
                 bg="#fff"
                 margin="75px"
-                padding="60px"
+                padding="20px"
                 radius="10px"
                 shadow="0 3px 6px 0 rgba(0, 0, 0, 0.16)"
               />
             </App>
           </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/policy-creation/:policyId",
+        element: (
+          // <ProtectedRoute>
+          <App>
+            <PolicyCreation
+              bg="#fff"
+              margin="75px"
+              padding="60px"
+              radius="10px"
+              shadow="0 3px 6px 0 rgba(0, 0, 0, 0.16)"
+            />
+          </App>
+          // </ProtectedRoute>
         ),
       },
     ],

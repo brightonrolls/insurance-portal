@@ -1,6 +1,8 @@
 import React from "react";
-import { Box, Button, Divider, Grid, Typography } from "@mui/material";
+
+import { Link } from "react-router-dom";
 import { Scrollbars } from "react-custom-scrollbars";
+import { Box, Button, Divider, Grid, Typography } from "@mui/material";
 
 import "../../../index.css";
 
@@ -104,16 +106,14 @@ const PolicyListing = () => {
                     className="vertical-line"
                   />
                   <Grid item xs={12} lg={2} p={1} pb={0}>
-                    <Box
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="space-between"
-                    >
-                      <Typography align="center">{premiumMonthly}</Typography>
-                      <Button variant="contained" className="buy-now-btn">
-                        Buy
-                      </Button>
-                    </Box>
+                    <Typography align="center">
+                      {premiumMonthly}
+                      <Link to={`/policy-creation/${id}`}>
+                        <Button variant="contained" className="buy-now-btn">
+                          Buy
+                        </Button>
+                      </Link>
+                    </Typography>
                   </Grid>
                 </Grid>
               </Box>

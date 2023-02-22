@@ -10,6 +10,7 @@ import {
 
 import { useDispatch } from "react-redux";
 
+import { resetData } from "../redux/policySlice";
 import { logoutHandler } from "../redux/authSlice";
 
 const settings = ["Logout"];
@@ -56,6 +57,7 @@ const AvatarComp = () => {
             key={setting}
             onClick={() => {
               handleCloseUserMenu();
+              dispatch(resetData());
               dispatch(logoutHandler());
             }}
           >

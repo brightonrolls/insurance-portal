@@ -88,6 +88,8 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const { isLoggedIn } = useSelector((state) => state.auth);
+  const state = useSelector((state) => state);
+  console.log("STATE", state);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);

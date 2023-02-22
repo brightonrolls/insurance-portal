@@ -105,7 +105,7 @@ const SubTabPanel = ({ title, value, index }) => {
                   <PolicyListing />
                 </>
               )}
-              <Box sx={{ paddingTop: "30px" }}>
+              <Box sx={{ paddingTop: "10px" }}>
                 <Typography fontSize="1.5rem" pb={3}>
                   Also Viewed
                 </Typography>
