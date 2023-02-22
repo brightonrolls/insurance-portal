@@ -10,6 +10,7 @@ import {
   ToggleButtonGroup,
 } from "@mui/material";
 import { useSelector } from "react-redux";
+import { useLocation, useParams } from "react-router";
 import { useForm, Controller } from "react-hook-form";
 import MuiPhoneNumber from "material-ui-phone-number";
 
@@ -17,7 +18,12 @@ import Saving from "../assets/images/saving.svg";
 import Shield2 from "../assets/images/shield-5.svg";
 
 const PolicyCreation = ({ bg, shadow, radius, margin, padding }) => {
+  const { policyId } = useParams();
+  const { pathname } = useLocation();
   const { policyData } = useSelector((state) => state.policy);
+
+  console.log({ policyId });
+  console.log({ pathname });
 
   const { control } = useForm({
     defaultValues: { ...policyData },
@@ -102,11 +108,14 @@ const PolicyCreation = ({ bg, shadow, radius, margin, padding }) => {
                       <Controller
                         name="fullname"
                         control={control}
+                        rules={{ required: true }}
                         render={({ field: { onChange, value } }) => (
                           <TextField
                             onChange={onChange}
                             value={value}
                             type="text"
+                            required
+                            fullWidth
                             id="full-name"
                             variant="outlined"
                             placeholder="John Doe"
@@ -247,6 +256,75 @@ const PolicyCreation = ({ bg, shadow, radius, margin, padding }) => {
                     </FormControl>
                   </Grid>
                 </Grid>
+                {pathname === `/policy-creation/${policyId}` && (
+                  <Grid
+                    container
+                    rowSpacing={2}
+                    columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                    pl={2}
+                    my={2}
+                    mb={4}
+                  >
+                    <Grid item xs={12} sm={4} md={4} lg={4}>
+                      <FormControl variant="outlined" fullWidth>
+                        <label htmlFor="nominee-1">Nominee 1</label>
+                        <Controller
+                          name="nomineeOne"
+                          control={control}
+                          render={({ field: { onChange, value } }) => (
+                            <TextField
+                              onChange={onChange}
+                              value={value}
+                              type="text"
+                              id="nominee-1"
+                              variant="outlined"
+                              placeholder="Nominee name"
+                            />
+                          )}
+                        />
+                      </FormControl>
+                    </Grid>
+
+                    <Grid item xs={12} sm={4} md={4} lg={4}>
+                      <FormControl variant="outlined" fullWidth>
+                        <label htmlFor="nominee-2">Nominee 2</label>
+                        <Controller
+                          name="nomineeTwo"
+                          control={control}
+                          render={({ field: { onChange, value } }) => (
+                            <TextField
+                              onChange={onChange}
+                              value={value}
+                              type="text"
+                              id="nominee-2"
+                              variant="outlined"
+                              placeholder="Nominee name"
+                            />
+                          )}
+                        />
+                      </FormControl>
+                    </Grid>
+                    <Grid item xs={12} sm={4} md={4} lg={4}>
+                      <FormControl variant="outlined" fullWidth>
+                        <label htmlFor="nominee-3">Nominee 3</label>
+                        <Controller
+                          name="nomineeThree"
+                          control={control}
+                          render={({ field: { onChange, value } }) => (
+                            <TextField
+                              onChange={onChange}
+                              value={value}
+                              type="text"
+                              id="nominee-3"
+                              variant="outlined"
+                              placeholder="Nominee name"
+                            />
+                          )}
+                        />
+                      </FormControl>
+                    </Grid>
+                  </Grid>
+                )}
                 <Box display="flex" alignItems="center" justifyContent="center">
                   <Button
                     variant="contained"
