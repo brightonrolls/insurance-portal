@@ -12,7 +12,7 @@ const NewPolicy = ({ bg, shadow, radius, margin, padding }) => {
           className="foreground-container"
           sx={{
             margin: { xs: "20px", lg: margin },
-            padding: { xs: "20px", lg: padding },
+            padding: { xs: "20px", lg: `${padding} !important` },
             marginTop: "100px !important",
             backgroundColor: bg,
             borderRadius: radius,

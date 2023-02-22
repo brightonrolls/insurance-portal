@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Tab, Tabs } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
 
 import BasicCard from "../UI/Card/BasicCard";
 
 import "../../index.css";
 import TabPanel from "./TabPanel";
+import { getDashboardDetails } from "../../redux/dashboardSlice";
 
 const HeroSection = () => {
-  const [value, setValue] = React.useState(0);
+  const dispatch = useDispatch();
+
+  const { loading, data } = useSelector((state) => state.dashboard);
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    dispatch(getDashboardDetails());
+  }, [dispatch]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
